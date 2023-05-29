@@ -3,6 +3,7 @@ package com.example.midterm3;
 // AccelerometerService.java
 
 import android.app.Service;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -11,6 +12,7 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.IBinder;
+import android.os.PowerManager;
 import android.os.SystemClock;
 import android.util.Log;
 
@@ -64,6 +66,15 @@ public class AccelerometerService extends Service implements SensorEventListener
 
     @Override
     public void onSensorChanged(SensorEvent event) {
+        // スリープ判定
+        PowerManager powerManager = (PowerManager) getSystemService(Context.POWER_SERVICE);
+        boolean isScreenOn = powerManager.isInteractive();
+
+        if (isScreenOn==false){
+            Log.d(TAG, "Sleep now.");
+            return;
+        }
+
         if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
             // 3軸の加速度の値を取得
             float xValue = event.values[0];
