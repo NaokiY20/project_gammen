@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // AccelerometerServiceの開始
-        StartAccService(0);
+//        StartAccService(0);
 
         restartButton1 = findViewById(R.id.restartButton1);
         restartButton2 = findViewById(R.id.restartButton2);
