@@ -3,6 +3,7 @@ package com.example.midterm3;
 // AccelerometerService.java
 
 import android.app.Service;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.hardware.Sensor;
@@ -13,6 +14,7 @@ import android.os.IBinder;
 import android.os.SystemClock;
 import android.util.Log;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
@@ -72,11 +74,12 @@ public class AccelerometerService extends Service implements SensorEventListener
     }
 
     public void notification() {
-        Intent intent = new Intent(this, MyActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(intent);
+//        Intent intent = new Intent(this, MyActivity.class);
+//        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//        startActivity(intent);
         // 通知の実行
         showNotification();
+//        showPopupNotification();
     }
 
     @Override
@@ -88,8 +91,8 @@ public class AccelerometerService extends Service implements SensorEventListener
         // 通知を作成
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "channel_id")
                 .setSmallIcon(R.drawable.smartphone_neru_boy_smash)
-                .setContentTitle("通知タイトル")
-                .setContentText("通知メッセージ")
+                .setContentTitle("顔面衝突防止アプリ")
+                .setContentText("現在危険な状態です。体勢を変えてください！")
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
 
         // 通知を表示
@@ -107,4 +110,18 @@ public class AccelerometerService extends Service implements SensorEventListener
         }
         notificationManager.notify(1, builder.build());
     }
+
+//    private void showPopupNotification() {
+//        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+//        builder.setTitle("ポップアップ通知");
+//        builder.setMessage("危険な状態です！");
+//        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialog, int which) {
+//                dialog.dismiss();
+//            }
+//        });
+//        AlertDialog dialog = builder.create();
+//        dialog.show();
+//    }
 }
