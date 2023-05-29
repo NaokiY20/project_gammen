@@ -13,6 +13,47 @@
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="1dp">
 
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="顔面衝突防止アプリ"
+            android:textSize="34sp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="使い方\n好きな動作モードを下から選んでサービスを実行してください。サービス実行中はバックグラウンドにて操作状況をモニタリングします。画面オフ中はサービスもスリープします。機能停止ボタンでいつでもサービスを停止させることができます。" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="強制停止モード\n危険な姿勢を検知すると、アプリが起動しお知らせします。" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="通知モード\n危険な姿勢を検知すると、システム通知を利用してお知らせします。" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="16dp" />
+
         <LinearLayout
             android:layout_width="409dp"
             android:layout_height="68dp"
