@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">midterm3</string>
+    <string name="app_name">顔面衝突防止アプリ</string>
     <string name="mode1">強制停止モード</string>
     <string name="mode2">通知モード</string>
 </resources>

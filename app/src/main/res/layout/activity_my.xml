@@ -22,20 +22,23 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="危ないです！"
-                android:textSize="48sp" />
+                android:textSize="48sp"
+                android:layout_gravity="center"/>
 
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="体勢を変えましょう"
+                android:layout_gravity="center"
+                android:text="体勢を変えましょう。"
                 android:textSize="24sp" />
 
             <Button
                 android:id="@+id/button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="設定画面に戻る" />
+                android:text="設定画面に戻る"
+                android:layout_gravity="center"/>
 
         </LinearLayout>
     </LinearLayout>
