@@ -26,7 +26,7 @@ public class AccelerometerService extends Service implements SensorEventListener
     private long lastStartActivityTime = -1;
     private static long marginTime = 5000; // 再度警告までの猶予
 
-    private int mode = 0; //監視Serviceのモード。(0:アクティビティ起動による警告。1:通知による警告)
+    private static int mode = 0; //監視Serviceのモード。(0:アクティビティ起動による警告。1:通知による警告)
 
     @Override
     public void onCreate() {
@@ -133,6 +133,10 @@ public class AccelerometerService extends Service implements SensorEventListener
             return;
         }
         notificationManager.notify(1, builder.build());
+    }
+
+    public static int getMode(){
+        return mode;
     }
 
 //    private void showPopupNotification() {
