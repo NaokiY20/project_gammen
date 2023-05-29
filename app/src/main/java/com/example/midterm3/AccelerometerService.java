@@ -65,13 +65,15 @@ public class AccelerometerService extends Service implements SensorEventListener
     @Override
     public void onSensorChanged(SensorEvent event) {
         if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
-            // z軸の加速度の値を取得
-            float zValue = event.values[2];
+            // 3軸の加速度の値を取得
+            float xValue = event.values[0];
             float yValue = event.values[1];
+            float zValue = event.values[2];
+
 
 
             // z軸の加速度が-9を下回った場合、アクティビティを起動
-            if (zValue < -9) {
+            if (zValue < -8.5) {
                 long time_now = SystemClock.elapsedRealtime();
 //                Log.d(TAG, String.format("time now = %d", time_now));
 //                Log.d(TAG, String.format("last now = %d", lastStartActivityTime));
