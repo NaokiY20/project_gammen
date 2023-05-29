@@ -26,6 +26,8 @@ public class AccelerometerService extends Service implements SensorEventListener
     private long lastStartActivityTime = -1;
     private static long marginTime = 5000; // 再度警告までの猶予
 
+    private int mode = 0; //監視Serviceのモード。(0:アクティビティ起動による警告。1:通知による警告)
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -38,6 +40,14 @@ public class AccelerometerService extends Service implements SensorEventListener
         sensorManager.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_NORMAL);
 
         Log.d(TAG, "Start Service");
+    }
+
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId){
+        // Intentからデータを取得
+        mode = intent.getIntExtra("mode",0);
+
+        return START_STICKY;
     }
 
     @Override
@@ -74,11 +84,23 @@ public class AccelerometerService extends Service implements SensorEventListener
     }
 
     public void notification() {
+        Log.d(TAG,String.format("start noti mode = %d",mode));
+        switch (mode){
+            case 0:
+                Intent intent = new Intent(this, MyActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                break;
+            case 1:
+                // 通知の実行
+                showNotification();
+                break;
+        }
 //        Intent intent = new Intent(this, MyActivity.class);
 //        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 //        startActivity(intent);
         // 通知の実行
-        showNotification();
+//        showNotification();
 //        showPopupNotification();
     }
 
