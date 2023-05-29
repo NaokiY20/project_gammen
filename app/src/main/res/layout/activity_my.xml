@@ -6,8 +6,8 @@
              android:layout_height="match_parent">
 
     <LinearLayout
-        android:layout_width="409dp"
-        android:layout_height="729dp"
+        android:layout_width="590dp"
+        android:layout_height="960dp"
         android:orientation="vertical"
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="1dp">
@@ -21,9 +21,9 @@
                 android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:text="危ないです！"
-                android:textSize="48sp"
-                android:layout_gravity="center"/>
+                android:textSize="80dp" />
 
             <TextView
                 android:id="@+id/textView2"
@@ -31,14 +31,19 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="体勢を変えましょう。"
-                android:textSize="24sp" />
+                android:textSize="40dp" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="30dp" />
 
             <Button
                 android:id="@+id/button"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="81dp"
+                android:layout_gravity="center"
                 android:text="設定画面に戻る"
-                android:layout_gravity="center"/>
+                android:textSize="40dp" />
 
         </LinearLayout>
     </LinearLayout>
